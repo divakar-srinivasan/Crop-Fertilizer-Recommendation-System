@@ -1062,5 +1062,3 @@ Soil_Moisture + Humidity + Temperature
 -> SHAP local explanation
 ```
 
-- Ready for paper preparation
-- Normal use requires no retraining
