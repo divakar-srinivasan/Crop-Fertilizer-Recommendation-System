@@ -65,6 +65,9 @@ The locked CatBoost model predicts one of nine crop classes and the Streamlit ap
 
 The final application is designed to run locally from the saved model artifact. A normal user does not need to retrain the model or rerun preprocessing to use the application.
 
+<img width="748" height="971" alt="Screenshot 2026-08-21 165637" src="https://github.com/user-attachments/assets/237b70c8-06cf-4e5e-92cc-0a86763c57dc" />
+
+
 ---
 
 ## 2. Problem Statement
