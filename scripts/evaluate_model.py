@@ -182,7 +182,6 @@ def select_best_model(comparison_df: pd.DataFrame) -> tuple[str, pd.Series, str]
 
     return best_name, best_row, reason
 
-
 def save_best_model(best_name: str, models: dict[str, object], label_encoder) -> dict[str, str]:
     """Save the selected model and required artifacts for prediction."""
     best_model = models[best_name]

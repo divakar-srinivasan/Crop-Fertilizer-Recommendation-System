@@ -1,8 +1,29 @@
+# Python
 venv/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
-*.pkl
-.DS_Store
+
+# Jupyter
 .ipynb_checkpoints/
+
+# Logs
 *.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# CatBoost
+catboost_info/
+
+# Environment/secrets
+.env
+
+# Temporary files
+*.tmp
