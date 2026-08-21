@@ -191,7 +191,7 @@ Streamlit startup was tested with:
 streamlit run app/app.py
 ```
 
-The app started successfully, returned HTTP 200 locally, displayed 12 input fields and one predict button, and produced a valid crop prediction in the Streamlit widget test.
+The app started successfully and returned HTTP 200 locally. Streamlit widget tests verified the Dataset V2 tab, the Review 1 tab, Dataset V2 crop prediction, confidence, 9-class probability output, SHAP explanation, and Review 1 prediction regression.
 
 ## Dataset V2 Baseline Experiment
 
