@@ -1,0 +1,101 @@
+{
+  "source_dataset": "data\\crop_dataset.csv",
+  "cleaning": {
+    "original_rows": 10000,
+    "original_columns": 46,
+    "selected_feature_count": 12,
+    "missing_values_before": 0,
+    "missing_values_after": 0,
+    "missing_value_method": "no_missing_values_found",
+    "duplicate_rows_before": 0,
+    "duplicate_rows_removed": 0,
+    "invalid_value_rows_removed": 0,
+    "invalid_value_details": {
+      "N_non_numeric": 0,
+      "N_below_min": 0,
+      "N_infinite": 0,
+      "P_non_numeric": 0,
+      "P_below_min": 0,
+      "P_infinite": 0,
+      "K_non_numeric": 0,
+      "K_below_min": 0,
+      "K_infinite": 0,
+      "pH_non_numeric": 0,
+      "pH_below_min": 0,
+      "pH_above_max": 0,
+      "pH_infinite": 0,
+      "EC_non_numeric": 0,
+      "EC_below_min": 0,
+      "EC_infinite": 0,
+      "OC_non_numeric": 0,
+      "OC_below_min": 0,
+      "OC_infinite": 0,
+      "S_non_numeric": 0,
+      "S_below_min": 0,
+      "S_infinite": 0,
+      "Zn_non_numeric": 0,
+      "Zn_below_min": 0,
+      "Zn_infinite": 0,
+      "Fe_non_numeric": 0,
+      "Fe_below_min": 0,
+      "Fe_infinite": 0,
+      "Cu_non_numeric": 0,
+      "Cu_below_min": 0,
+      "Cu_infinite": 0,
+      "Mn_non_numeric": 0,
+      "Mn_below_min": 0,
+      "Mn_infinite": 0,
+      "B_non_numeric": 0,
+      "B_below_min": 0,
+      "B_infinite": 0
+    },
+    "rows_retained": 10000,
+    "target_classes": [
+      "Maize",
+      "Rice",
+      "Soybean",
+      "Wheat"
+    ],
+    "outlier_note": "Outliers analyzed separately in eda.py; no outlier rows removed."
+  },
+  "split": {
+    "train_rows": 8000,
+    "test_rows": 2000,
+    "train_class_distribution": {
+      "Maize": 2043,
+      "Rice": 1924,
+      "Soybean": 2008,
+      "Wheat": 2025
+    },
+    "test_class_distribution": {
+      "Maize": 511,
+      "Rice": 481,
+      "Soybean": 502,
+      "Wheat": 506
+    },
+    "random_state": 42,
+    "test_size": 0.2,
+    "stratified": true
+  },
+  "feature_columns": [
+    "N",
+    "P",
+    "K",
+    "pH",
+    "EC",
+    "OC",
+    "S",
+    "Zn",
+    "Fe",
+    "Cu",
+    "Mn",
+    "B"
+  ],
+  "target_column": "Crop_Type",
+  "scaling_applied": false,
+  "notes": [
+    "Original crop_dataset.csv was not modified.",
+    "Outliers were analyzed but not removed.",
+    "Tree-based models do not require feature scaling in this project stage."
+  ]
+}

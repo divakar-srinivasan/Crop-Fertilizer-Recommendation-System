@@ -1,0 +1,143 @@
+{
+  "rows": 10000,
+  "features": [
+    "N",
+    "P",
+    "K",
+    "pH",
+    "EC",
+    "OC",
+    "S",
+    "Zn",
+    "Fe",
+    "Cu",
+    "Mn",
+    "B"
+  ],
+  "target": "Crop_Type",
+  "class_distribution": {
+    "Maize": 2554,
+    "Rice": 2405,
+    "Soybean": 2510,
+    "Wheat": 2531
+  },
+  "strong_correlations": [],
+  "outlier_summary": [
+    {
+      "feature": "N",
+      "q1": 58.195798585718194,
+      "q3": 152.90027642859053,
+      "lower_fence": -83.86091817859031,
+      "upper_fence": 294.95699319289906,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "P",
+      "q1": 41.46073754861096,
+      "q3": 113.86599856094111,
+      "lower_fence": -67.14715396988427,
+      "upper_fence": 222.47389007943633,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "K",
+      "q1": 67.35587423957641,
+      "q3": 189.6422630084949,
+      "lower_fence": -116.07370891380133,
+      "upper_fence": 373.0718461618726,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "pH",
+      "q1": 5.4872669798791005,
+      "q3": 7.498968846897741,
+      "lower_fence": 2.46971417935114,
+      "upper_fence": 10.516521647425702,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "EC",
+      "q1": 0.6966783196466714,
+      "q3": 1.8999124915315329,
+      "lower_fence": -1.108172938180621,
+      "upper_fence": 3.7047637493588255,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "OC",
+      "q1": 0.5846129919908984,
+      "q3": 1.530551316754092,
+      "lower_fence": -0.834294495153892,
+      "upper_fence": 2.9494588038988825,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "S",
+      "q1": 25.857158839416723,
+      "q3": 74.57230908100311,
+      "lower_fence": -47.215566522962845,
+      "upper_fence": 147.64503444338268,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "Zn",
+      "q1": 2.5926057121402826,
+      "q3": 7.568544586424764,
+      "lower_fence": -4.87130259928644,
+      "upper_fence": 15.032452897851487,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "Fe",
+      "q1": 12.773285566567113,
+      "q3": 37.954603071499484,
+      "lower_fence": -24.998690690831452,
+      "upper_fence": 75.72657932889805,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "Cu",
+      "q1": 1.3448341241427002,
+      "q3": 3.7826170585229204,
+      "lower_fence": -2.3118402774276303,
+      "upper_fence": 7.439291460093251,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "Mn",
+      "q1": 6.333410749300806,
+      "q3": 18.773183123141457,
+      "lower_fence": -12.326247811460167,
+      "upper_fence": 37.43284168390243,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    },
+    {
+      "feature": "B",
+      "q1": 0.8377448405214126,
+      "q3": 2.26504088313421,
+      "lower_fence": -1.3031992233977836,
+      "upper_fence": 4.4059849470534065,
+      "outlier_count": 0,
+      "outlier_pct": 0.0
+    }
+  ],
+  "generated_images": [
+    "E:\\Devops\\Crop-Fertilizer-Recommendation-System\\images\\crop_class_distribution.png",
+    "E:\\Devops\\Crop-Fertilizer-Recommendation-System\\images\\feature_distributions.png",
+    "E:\\Devops\\Crop-Fertilizer-Recommendation-System\\images\\correlation_heatmap.png",
+    "E:\\Devops\\Crop-Fertilizer-Recommendation-System\\images\\feature_boxplots.png",
+    "E:\\Devops\\Crop-Fertilizer-Recommendation-System\\images\\feature_by_crop_boxplots.png"
+  ],
+  "statistical_summary_file": "data/processed/statistical_summary.csv"
+}
