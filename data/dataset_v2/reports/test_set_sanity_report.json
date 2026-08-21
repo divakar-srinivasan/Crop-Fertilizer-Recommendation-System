@@ -1,0 +1,27 @@
+{
+  "test_samples": 579,
+  "test_set_contains_579_samples": true,
+  "test_set_used_during_cross_validation": false,
+  "test_set_used_during_training": false,
+  "test_labels_used_for_hyperparameter_tuning": false,
+  "duplicate_test_feature_rows": 0,
+  "duplicate_test_rows_with_label": 0,
+  "test_feature_rows_duplicated_in_training": 0,
+  "test_rows_with_label_duplicated_in_training": 0,
+  "feature_order_train": [
+    "Soil_Moisture",
+    "Humidity",
+    "Temperature"
+  ],
+  "feature_order_test": [
+    "Soil_Moisture",
+    "Humidity",
+    "Temperature"
+  ],
+  "feature_order_identical": true,
+  "label_encoding_identical": true,
+  "encoded_label_min_train": 0,
+  "encoded_label_max_train": 8,
+  "encoded_label_min_test": 0,
+  "encoded_label_max_test": 8
+}

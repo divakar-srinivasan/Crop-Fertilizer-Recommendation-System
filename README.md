@@ -18,6 +18,7 @@ Review 1 Level 3 trains and evaluates multiple baseline models, selects the best
 - joblib
 - matplotlib
 - Streamlit
+- SHAP
 
 ## Dataset
 
@@ -153,7 +154,31 @@ Predicted Crop: Maize
 Crop Recommendation System
 ```
 
-The user can enter the 12 soil parameters and click `Predict Crop`. The app displays:
+The application has two tabs:
+
+- `Dataset V2`: confidence-aware 3-feature crop prediction using the locked Dataset V2 CatBoost model
+- `Review 1`: original 12-feature soil-parameter crop prediction
+
+In the Dataset V2 tab, the user enters:
+
+```text
+Soil_Moisture, Humidity, Temperature
+```
+
+After clicking `Predict Crop`, the app displays:
+
+- recommended crop
+- confidence
+- 9-class crop probability distribution
+- local SHAP feature contribution table and bar chart
+
+The SHAP section is an explanation aid only:
+
+```text
+SHAP estimates the contribution of each input feature to the model's prediction.
+```
+
+In the Review 1 tab, the user can enter the original 12 soil parameters and click `Predict Crop`. The app displays:
 
 ```text
 Recommended Crop:
@@ -301,6 +326,65 @@ The prior Dataset V2 audit found unusually strong feature/crop separation:
 
 This means the very high Dataset V2 baseline accuracy is dataset-dependent and strongly influenced by crop-specific Soil_Moisture ranges. It should not be presented as proof of broad real-world generalization.
 
+### Dataset V2 Robustness and Ablation Validation
+
+Robustness validation was run with:
+
+```powershell
+python scripts\robustness_dataset_v2.py
+```
+
+The analysis did not modify the raw dataset, cleaned dataset, labels, or saved best V2 model.
+
+Stratified 5-fold cross-validation used only `data/dataset_v2/cleaned/X_train.csv` and `data/dataset_v2/cleaned/y_train.csv`.
+
+| Statistic | Accuracy | Macro F1 | Weighted F1 | Macro Precision | Macro Recall |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Mean | 0.9909 | 0.9896 | 0.9909 | 0.9891 | 0.9903 |
+| Std | 0.0058 | 0.0073 | 0.0058 | 0.0085 | 0.0061 |
+| Min | 0.9827 | 0.9808 | 0.9828 | 0.9782 | 0.9840 |
+| Max | 0.9957 | 0.9973 | 0.9957 | 0.9969 | 0.9977 |
+
+Feature ablation used the same fixed train/test split and temporary CatBoost models:
+
+| Configuration | Features | Accuracy | Macro F1 | Weighted F1 |
+| --- | --- | ---: | ---: | ---: |
+| A | Soil_Moisture, Humidity, Temperature | 0.9931 | 0.9929 | 0.9931 |
+| B | Humidity, Temperature | 0.4611 | 0.3918 | 0.4354 |
+| C | Soil_Moisture, Humidity | 0.9931 | 0.9929 | 0.9931 |
+| D | Soil_Moisture, Temperature | 0.9914 | 0.9905 | 0.9914 |
+
+Removing `Soil_Moisture` reduced Macro F1 by approximately 0.6011. The saved CatBoost model also reported `Soil_Moisture` normalized feature importance of 0.9531.
+
+Test-set integrity checks passed:
+
+- Test samples: 579
+- Duplicate test feature rows: 0
+- Duplicate test rows with label: 0
+- Test feature rows duplicated in training: 0
+- Test rows with label duplicated in training: 0
+- Feature order identical: true
+- Label encoding identical: true
+- Saved best model unchanged: true
+
+Final robustness assessment:
+
+```text
+B. Stable but heavily dependent on Soil_Moisture
+```
+
+The model demonstrates strong performance under the evaluated dataset distribution, but the result remains strongly dependent on Soil_Moisture and should not be claimed as 99% real-world farm generalization.
+
+Robustness reports are saved at:
+
+- `data/dataset_v2/reports/cross_validation_results.csv`
+- `data/dataset_v2/reports/cross_validation_summary.json`
+- `data/dataset_v2/reports/feature_ablation_results.csv`
+- `data/dataset_v2/reports/feature_importance_v2.csv`
+- `data/dataset_v2/reports/test_set_sanity_report.json`
+- `data/dataset_v2/reports/crop_wise_robustness.csv`
+- `data/dataset_v2/reports/robustness_summary.json`
+
 ### Dataset V2 Reproduction
 
 Run the Dataset V2 baseline experiment from the project root:
@@ -336,6 +420,9 @@ Crop-Fertilizer-Recommendation-System/
 |   |-- feature_selection.py
 |   |-- preprocess_dataset_v2.py
 |   |-- train_evaluate_dataset_v2.py
+|   |-- robustness_dataset_v2.py
+|   |-- confidence_prediction.py
+|   |-- explain_prediction.py
 |   |-- preprocessing.py
 |   |-- eda.py
 |   |-- train_model.py

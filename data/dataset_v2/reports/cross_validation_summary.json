@@ -1,0 +1,91 @@
+{
+  "experiment": "Stratified 5-fold cross-validation on Dataset V2 training data only",
+  "model": "CatBoost",
+  "random_state": 42,
+  "n_splits": 5,
+  "test_set_used": false,
+  "folds": [
+    {
+      "Fold": 1,
+      "Train_Size": 1849,
+      "Validation_Size": 463,
+      "Accuracy": 0.9956803455723542,
+      "Macro_F1": 0.9948377731659465,
+      "Weighted_F1": 0.995668892332862,
+      "Macro_Precision": 0.9960517120894479,
+      "Macro_Recall": 0.9937531234382809
+    },
+    {
+      "Fold": 2,
+      "Train_Size": 1849,
+      "Validation_Size": 463,
+      "Accuracy": 0.9935205183585313,
+      "Macro_F1": 0.9921620070448738,
+      "Weighted_F1": 0.9935458815879754,
+      "Macro_Precision": 0.9922935357717966,
+      "Macro_Recall": 0.9920967361847531
+    },
+    {
+      "Fold": 3,
+      "Train_Size": 1850,
+      "Validation_Size": 462,
+      "Accuracy": 0.9956709956709957,
+      "Macro_F1": 0.9972776473656756,
+      "Weighted_F1": 0.9956789347194276,
+      "Macro_Precision": 0.9969135802469135,
+      "Macro_Recall": 0.997709049255441
+    },
+    {
+      "Fold": 4,
+      "Train_Size": 1850,
+      "Validation_Size": 462,
+      "Accuracy": 0.987012987012987,
+      "Macro_F1": 0.98302826877991,
+      "Weighted_F1": 0.9870491756352983,
+      "Macro_Precision": 0.9821719456234747,
+      "Macro_Recall": 0.9840827438514421
+    },
+    {
+      "Fold": 5,
+      "Train_Size": 1850,
+      "Validation_Size": 462,
+      "Accuracy": 0.9826839826839827,
+      "Macro_F1": 0.9807613187776121,
+      "Weighted_F1": 0.9827782051294484,
+      "Macro_Precision": 0.9781688214134232,
+      "Macro_Recall": 0.9840457359116938
+    }
+  ],
+  "statistics": {
+    "Accuracy": {
+      "mean": 0.9909137658597702,
+      "std": 0.005811455991294544,
+      "min": 0.9826839826839827,
+      "max": 0.9956803455723542
+    },
+    "Macro_F1": {
+      "mean": 0.9896134030268037,
+      "std": 0.007318699605838763,
+      "min": 0.9807613187776121,
+      "max": 0.9972776473656756
+    },
+    "Weighted_F1": {
+      "mean": 0.9909442178810023,
+      "std": 0.005774163675690749,
+      "min": 0.9827782051294484,
+      "max": 0.9956789347194276
+    },
+    "Macro_Precision": {
+      "mean": 0.9891199190290113,
+      "std": 0.008471476064895945,
+      "min": 0.9781688214134232,
+      "max": 0.9969135802469135
+    },
+    "Macro_Recall": {
+      "mean": 0.9903374777283223,
+      "std": 0.006078844538019014,
+      "min": 0.9840457359116938,
+      "max": 0.997709049255441
+    }
+  }
+}

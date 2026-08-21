@@ -1,0 +1,294 @@
+{
+  "objective": "Dataset V2 robustness and ablation validation without modifying data, labels, or saved models.",
+  "cross_validation": {
+    "experiment": "Stratified 5-fold cross-validation on Dataset V2 training data only",
+    "model": "CatBoost",
+    "random_state": 42,
+    "n_splits": 5,
+    "test_set_used": false,
+    "folds": [
+      {
+        "Fold": 1,
+        "Train_Size": 1849,
+        "Validation_Size": 463,
+        "Accuracy": 0.9956803455723542,
+        "Macro_F1": 0.9948377731659465,
+        "Weighted_F1": 0.995668892332862,
+        "Macro_Precision": 0.9960517120894479,
+        "Macro_Recall": 0.9937531234382809
+      },
+      {
+        "Fold": 2,
+        "Train_Size": 1849,
+        "Validation_Size": 463,
+        "Accuracy": 0.9935205183585313,
+        "Macro_F1": 0.9921620070448738,
+        "Weighted_F1": 0.9935458815879754,
+        "Macro_Precision": 0.9922935357717966,
+        "Macro_Recall": 0.9920967361847531
+      },
+      {
+        "Fold": 3,
+        "Train_Size": 1850,
+        "Validation_Size": 462,
+        "Accuracy": 0.9956709956709957,
+        "Macro_F1": 0.9972776473656756,
+        "Weighted_F1": 0.9956789347194276,
+        "Macro_Precision": 0.9969135802469135,
+        "Macro_Recall": 0.997709049255441
+      },
+      {
+        "Fold": 4,
+        "Train_Size": 1850,
+        "Validation_Size": 462,
+        "Accuracy": 0.987012987012987,
+        "Macro_F1": 0.98302826877991,
+        "Weighted_F1": 0.9870491756352983,
+        "Macro_Precision": 0.9821719456234747,
+        "Macro_Recall": 0.9840827438514421
+      },
+      {
+        "Fold": 5,
+        "Train_Size": 1850,
+        "Validation_Size": 462,
+        "Accuracy": 0.9826839826839827,
+        "Macro_F1": 0.9807613187776121,
+        "Weighted_F1": 0.9827782051294484,
+        "Macro_Precision": 0.9781688214134232,
+        "Macro_Recall": 0.9840457359116938
+      }
+    ],
+    "statistics": {
+      "Accuracy": {
+        "mean": 0.9909137658597702,
+        "std": 0.005811455991294544,
+        "min": 0.9826839826839827,
+        "max": 0.9956803455723542
+      },
+      "Macro_F1": {
+        "mean": 0.9896134030268037,
+        "std": 0.007318699605838763,
+        "min": 0.9807613187776121,
+        "max": 0.9972776473656756
+      },
+      "Weighted_F1": {
+        "mean": 0.9909442178810023,
+        "std": 0.005774163675690749,
+        "min": 0.9827782051294484,
+        "max": 0.9956789347194276
+      },
+      "Macro_Precision": {
+        "mean": 0.9891199190290113,
+        "std": 0.008471476064895945,
+        "min": 0.9781688214134232,
+        "max": 0.9969135802469135
+      },
+      "Macro_Recall": {
+        "mean": 0.9903374777283223,
+        "std": 0.006078844538019014,
+        "min": 0.9840457359116938,
+        "max": 0.997709049255441
+      }
+    }
+  },
+  "feature_ablation": [
+    {
+      "Configuration": "A_All_Features",
+      "Features": "Soil_Moisture, Humidity, Temperature",
+      "Feature_Count": 3,
+      "Accuracy": 0.993092,
+      "Macro_F1": 0.9929,
+      "Weighted_F1": 0.993092,
+      "Macro_Precision": 0.991942,
+      "Macro_Recall": 0.993995
+    },
+    {
+      "Configuration": "B_No_Soil_Moisture",
+      "Features": "Humidity, Temperature",
+      "Feature_Count": 2,
+      "Accuracy": 0.46114,
+      "Macro_F1": 0.391831,
+      "Weighted_F1": 0.435427,
+      "Macro_Precision": 0.411121,
+      "Macro_Recall": 0.397071
+    },
+    {
+      "Configuration": "C_No_Temperature",
+      "Features": "Soil_Moisture, Humidity",
+      "Feature_Count": 2,
+      "Accuracy": 0.993092,
+      "Macro_F1": 0.9929,
+      "Weighted_F1": 0.993092,
+      "Macro_Precision": 0.991942,
+      "Macro_Recall": 0.993995
+    },
+    {
+      "Configuration": "D_No_Humidity",
+      "Features": "Soil_Moisture, Temperature",
+      "Feature_Count": 2,
+      "Accuracy": 0.991364,
+      "Macro_F1": 0.9905,
+      "Weighted_F1": 0.991373,
+      "Macro_Precision": 0.990309,
+      "Macro_Recall": 0.990909
+    }
+  ],
+  "feature_importance": [
+    {
+      "Model": "CatBoost",
+      "Feature": "Soil_Moisture",
+      "Importance": 95.310486,
+      "Normalized_Importance": 0.953105
+    },
+    {
+      "Model": "CatBoost",
+      "Feature": "Temperature",
+      "Importance": 2.751433,
+      "Normalized_Importance": 0.027514
+    },
+    {
+      "Model": "CatBoost",
+      "Feature": "Humidity",
+      "Importance": 1.938081,
+      "Normalized_Importance": 0.019381
+    }
+  ],
+  "test_set_sanity": {
+    "test_samples": 579,
+    "test_set_contains_579_samples": true,
+    "test_set_used_during_cross_validation": false,
+    "test_set_used_during_training": false,
+    "test_labels_used_for_hyperparameter_tuning": false,
+    "duplicate_test_feature_rows": 0,
+    "duplicate_test_rows_with_label": 0,
+    "test_feature_rows_duplicated_in_training": 0,
+    "test_rows_with_label_duplicated_in_training": 0,
+    "feature_order_train": [
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature"
+    ],
+    "feature_order_test": [
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature"
+    ],
+    "feature_order_identical": true,
+    "label_encoding_identical": true,
+    "encoded_label_min_train": 0,
+    "encoded_label_max_train": 8,
+    "encoded_label_min_test": 0,
+    "encoded_label_max_test": 8
+  },
+  "crop_wise_robustness": [
+    {
+      "Crop": "Banana",
+      "Support": 58,
+      "Precision": 1.0,
+      "Recall": 0.982759,
+      "F1": 0.991304
+    },
+    {
+      "Crop": "Jute",
+      "Support": 49,
+      "Precision": 1.0,
+      "Recall": 0.979592,
+      "F1": 0.989691
+    },
+    {
+      "Crop": "Maize",
+      "Support": 122,
+      "Precision": 1.0,
+      "Recall": 0.983607,
+      "F1": 0.991736
+    },
+    {
+      "Crop": "Mango",
+      "Support": 51,
+      "Precision": 0.980769,
+      "Recall": 1.0,
+      "F1": 0.990291
+    },
+    {
+      "Crop": "Pineapple",
+      "Support": 36,
+      "Precision": 0.972973,
+      "Recall": 1.0,
+      "F1": 0.986301
+    },
+    {
+      "Crop": "Potato",
+      "Support": 65,
+      "Precision": 0.984848,
+      "Recall": 1.0,
+      "F1": 0.992366
+    },
+    {
+      "Crop": "Strawberry",
+      "Support": 89,
+      "Precision": 0.988889,
+      "Recall": 1.0,
+      "F1": 0.994413
+    },
+    {
+      "Crop": "Sugarcane",
+      "Support": 36,
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0
+    },
+    {
+      "Crop": "Wheat",
+      "Support": 73,
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0
+    }
+  ],
+  "best_performing_crop": {
+    "Crop": "Sugarcane",
+    "Support": 36,
+    "Precision": 1.0,
+    "Recall": 1.0,
+    "F1": 1.0
+  },
+  "worst_performing_crop": {
+    "Crop": "Pineapple",
+    "Support": 36,
+    "Precision": 0.972972972972973,
+    "Recall": 1.0,
+    "F1": 0.9863013698630136
+  },
+  "stability_assessment": {
+    "category": "B. Stable but heavily dependent on Soil_Moisture",
+    "cv_macro_f1_mean": 0.9896134030268037,
+    "cv_macro_f1_std": 0.007318699605838763,
+    "full_feature_macro_f1": 0.9929003398555066,
+    "no_soil_moisture_macro_f1": 0.3918311039112824,
+    "macro_f1_drop_without_soil_moisture": 0.6010692359442242,
+    "soil_moisture_normalized_importance": 0.9531048603538607,
+    "minimum_crop_f1": 0.9863013698630136,
+    "recommended_interpretation": "The model demonstrates strong performance under the evaluated dataset distribution, but the evidence shows strong dependence on Soil_Moisture. Do not claim 99% real-world farm generalization."
+  },
+  "model_integrity": {
+    "model_path": "models\\dataset_v2\\crop_model_v2.pkl",
+    "encoder_path": "models\\dataset_v2\\label_encoder_v2.joblib",
+    "model_sha_before": "76bf21ceed70955b66bb0b11c74f920d9b4cf5186d4f2894a64cd58313c51b4e",
+    "model_sha_after": "76bf21ceed70955b66bb0b11c74f920d9b4cf5186d4f2894a64cd58313c51b4e",
+    "model_unchanged": true,
+    "encoder_sha_before": "706722a5bfdd18e7b40a86c18198c148b035f1ea55a3f10db047879ef51efee8",
+    "encoder_sha_after": "706722a5bfdd18e7b40a86c18198c148b035f1ea55a3f10db047879ef51efee8",
+    "encoder_unchanged": true
+  },
+  "output_files": [
+    "data\\dataset_v2\\reports\\cross_validation_results.csv",
+    "data\\dataset_v2\\reports\\cross_validation_summary.json",
+    "data\\dataset_v2\\reports\\feature_ablation_results.csv",
+    "data\\dataset_v2\\reports\\feature_importance_v2.csv",
+    "data\\dataset_v2\\reports\\test_set_sanity_report.json",
+    "data\\dataset_v2\\reports\\crop_wise_robustness.csv",
+    "data\\dataset_v2\\reports\\robustness_summary.json",
+    "data\\dataset_v2\\reports\\robustness_summary.md"
+  ],
+  "final_status": "DATASET V2 ROBUSTNESS ANALYSIS COMPLETED"
+}
