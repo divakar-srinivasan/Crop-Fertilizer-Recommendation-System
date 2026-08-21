@@ -1,0 +1,3 @@
+filename,file_type,file_size_bytes,purpose
+final_crops_data.csv,csv,80810,Official Mendeley CSV dataset file
+source_metadata_mendeley.json,json,4813,Official Mendeley source metadata captured during validation

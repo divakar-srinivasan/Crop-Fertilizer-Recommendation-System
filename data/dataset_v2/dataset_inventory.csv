@@ -1,0 +1,6 @@
+column_name,data_type,feature_type,feature_group,missing_values,missing_pct,unique_values,infinite_values,invalid_numeric_values,constant_column,leakage_classification,leakage_reason
+Soil,float64,numeric,Soil properties,0,0.0,69,0,0,False,UNKNOWN,Ambiguous name. Values are numeric and perfectly redundant with Soil_Moisture scaled by 1/100; likely safe only if documented as normalized soil moisture.
+Soil_Moisture,int64,numeric,Soil properties,0,0.0,69,0,0,False,SAFE_PRE_PLANT,Soil moisture can be measured before crop recommendation.
+Humidity,float64,numeric,Weather/environment,0,0.0,756,0,0,False,SAFE_PRE_PLANT,Ambient humidity/weather condition can be available before crop recommendation.
+Temperature,float64,numeric,Weather/environment,0,0.0,1185,0,0,False,SAFE_PRE_PLANT,Ambient temperature/weather condition can be available before crop recommendation.
+Crop Name,str,categorical,Target,0,0.0,9,0,0,False,LEAKAGE,Target/crop label column.

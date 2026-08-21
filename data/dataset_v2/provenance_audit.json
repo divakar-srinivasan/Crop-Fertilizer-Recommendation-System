@@ -1,0 +1,19 @@
+{
+  "source_documented_facts": [
+    "Dataset title: Appropriate Crop Recommendation Dataset for Cultivation in Bangladesh using IoT and Machine Learning (CropRec-BD v1, 2025)",
+    "DOI: 10.17632/dtf278skpw.1",
+    "License: CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)",
+    "Publisher/repository: Mendeley Data",
+    "Published version: 1 on 2025-11-03T12:57:46.456Z",
+    "Metadata states collection in Bangladesh using IoT sensors, farmer surveys, agricultural records, BARI and NASA sources.",
+    "Metadata states roughly 3,000 records for nine crops.",
+    "Downloaded file list contains final_crops_data.csv only."
+  ],
+  "inferences_from_data_patterns": [
+    "Actual downloaded CSV has 2,892 rows, 5 columns, and 9 crop classes.",
+    "Actual file contains only Soil, Soil_Moisture, Humidity, Temperature, and Crop Name.",
+    "Soil is a perfectly scaled duplicate of Soil_Moisture.",
+    "Soil_Moisture has strongly crop-specific ranges, suggesting strong dataset construction or agronomic grouping; leakage is not proven from file contents alone.",
+    "Humidity and Temperature are rounded to two decimals; Soil_Moisture is integer-valued."
+  ]
+}

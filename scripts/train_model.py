@@ -62,6 +62,7 @@ def build_models() -> dict[str, object]:
             iterations=100,
             random_state=RANDOM_STATE,
             verbose=0,
+            allow_writing_files=False,
         ),
     }
 

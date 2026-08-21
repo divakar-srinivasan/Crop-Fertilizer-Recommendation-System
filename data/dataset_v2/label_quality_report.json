@@ -1,0 +1,19 @@
+{
+  "unique_labels": [
+    "Banana",
+    "Jute",
+    "Maize",
+    "Mango",
+    "Pineapple",
+    "Potato",
+    "Strawberry",
+    "Sugercane",
+    "Wheat"
+  ],
+  "leading_or_trailing_whitespace_rows": 0,
+  "case_variants_by_lowercase": {},
+  "unexpected_blank_labels": 0,
+  "contains_sugercane": true,
+  "contains_sugarcane": false,
+  "recommendation": "Do not rename during validation. For future cleaned V2, standardize Sugercane to Sugarcane only in a documented cleaned copy while preserving the raw source file and a label mapping."
+}

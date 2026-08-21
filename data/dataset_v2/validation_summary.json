@@ -1,0 +1,233 @@
+{
+  "source": {
+    "name": "Appropriate Crop Recommendation Dataset for Cultivation in Bangladesh using IoT and Machine Learning (CropRec-BD v1, 2025)",
+    "url": "https://data.mendeley.com/datasets/dtf278skpw/1",
+    "doi": "10.17632/dtf278skpw.1",
+    "publisher": "Mendeley Data",
+    "publish_date": "2025-11-03T12:57:46.456Z",
+    "license": "CC BY 4.0",
+    "license_url": "http://creativecommons.org/licenses/by/4.0",
+    "file_sha256": "cfd15c93086a02991bcda90869537b8390794e98c6acc5c5e13f0b7c6c11afee"
+  },
+  "file_inventory": [
+    {
+      "filename": "final_crops_data.csv",
+      "file_type": "csv",
+      "file_size_bytes": 80810,
+      "purpose": "Official Mendeley CSV dataset file"
+    },
+    {
+      "filename": "source_metadata_mendeley.json",
+      "file_type": "json",
+      "file_size_bytes": 4813,
+      "purpose": "Official Mendeley source metadata captured during validation"
+    }
+  ],
+  "quality": {
+    "rows": 2892,
+    "columns": 5,
+    "column_names": [
+      "Soil",
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature",
+      "Crop Name"
+    ],
+    "target_column": "Crop Name",
+    "feature_columns": [
+      "Soil",
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature"
+    ],
+    "missing_values_total": 0,
+    "duplicate_rows": 1,
+    "infinite_values_total": 0,
+    "constant_columns": [],
+    "soil_equals_soil_moisture_div_100": true
+  },
+  "target_column": "Crop Name",
+  "classes": [
+    "Banana",
+    "Jute",
+    "Maize",
+    "Mango",
+    "Pineapple",
+    "Potato",
+    "Strawberry",
+    "Sugercane",
+    "Wheat"
+  ],
+  "class_distribution": [
+    {
+      "Crop": "Banana",
+      "Count": 289,
+      "Percentage": 9.99
+    },
+    {
+      "Crop": "Jute",
+      "Count": 247,
+      "Percentage": 8.54
+    },
+    {
+      "Crop": "Maize",
+      "Count": 608,
+      "Percentage": 21.02
+    },
+    {
+      "Crop": "Mango",
+      "Count": 255,
+      "Percentage": 8.82
+    },
+    {
+      "Crop": "Pineapple",
+      "Count": 181,
+      "Percentage": 6.26
+    },
+    {
+      "Crop": "Potato",
+      "Count": 324,
+      "Percentage": 11.2
+    },
+    {
+      "Crop": "Strawberry",
+      "Count": 443,
+      "Percentage": 15.32
+    },
+    {
+      "Crop": "Sugercane",
+      "Count": 180,
+      "Percentage": 6.22
+    },
+    {
+      "Crop": "Wheat",
+      "Count": 365,
+      "Percentage": 12.62
+    }
+  ],
+  "inventory": [
+    {
+      "column_name": "Soil",
+      "data_type": "float64",
+      "feature_type": "numeric",
+      "feature_group": "Soil properties",
+      "missing_values": 0,
+      "missing_pct": 0.0,
+      "unique_values": 69,
+      "infinite_values": 0,
+      "invalid_numeric_values": 0,
+      "constant_column": false,
+      "leakage_classification": "UNKNOWN",
+      "leakage_reason": "Ambiguous name. Values are numeric and perfectly redundant with Soil_Moisture scaled by 1/100; likely safe only if documented as normalized soil moisture."
+    },
+    {
+      "column_name": "Soil_Moisture",
+      "data_type": "int64",
+      "feature_type": "numeric",
+      "feature_group": "Soil properties",
+      "missing_values": 0,
+      "missing_pct": 0.0,
+      "unique_values": 69,
+      "infinite_values": 0,
+      "invalid_numeric_values": 0,
+      "constant_column": false,
+      "leakage_classification": "SAFE_PRE_PLANT",
+      "leakage_reason": "Soil moisture can be measured before crop recommendation."
+    },
+    {
+      "column_name": "Humidity",
+      "data_type": "float64",
+      "feature_type": "numeric",
+      "feature_group": "Weather/environment",
+      "missing_values": 0,
+      "missing_pct": 0.0,
+      "unique_values": 756,
+      "infinite_values": 0,
+      "invalid_numeric_values": 0,
+      "constant_column": false,
+      "leakage_classification": "SAFE_PRE_PLANT",
+      "leakage_reason": "Ambient humidity/weather condition can be available before crop recommendation."
+    },
+    {
+      "column_name": "Temperature",
+      "data_type": "float64",
+      "feature_type": "numeric",
+      "feature_group": "Weather/environment",
+      "missing_values": 0,
+      "missing_pct": 0.0,
+      "unique_values": 1185,
+      "infinite_values": 0,
+      "invalid_numeric_values": 0,
+      "constant_column": false,
+      "leakage_classification": "SAFE_PRE_PLANT",
+      "leakage_reason": "Ambient temperature/weather condition can be available before crop recommendation."
+    },
+    {
+      "column_name": "Crop Name",
+      "data_type": "str",
+      "feature_type": "categorical",
+      "feature_group": "Target",
+      "missing_values": 0,
+      "missing_pct": 0.0,
+      "unique_values": 9,
+      "infinite_values": 0,
+      "invalid_numeric_values": 0,
+      "constant_column": false,
+      "leakage_classification": "LEAKAGE",
+      "leakage_reason": "Target/crop label column."
+    }
+  ],
+  "valid_preplant_features": [
+    "Soil_Moisture",
+    "Humidity",
+    "Temperature"
+  ],
+  "numeric_separation": [
+    {
+      "feature": "Soil",
+      "feature_group": "Soil properties",
+      "leakage_classification": "UNKNOWN",
+      "anova_f": 18524.117453328956,
+      "p_value": 0.0,
+      "eta_squared": 0.9846907185905813,
+      "mutual_info": 2.090188170731645,
+      "mean_range_across_crops": 0.5513462580295643,
+      "normalized_mean_range": 26.68027849421152
+    },
+    {
+      "feature": "Soil_Moisture",
+      "feature_group": "Soil properties",
+      "leakage_classification": "SAFE_PRE_PLANT",
+      "anova_f": 18524.117453328643,
+      "p_value": 0.0,
+      "eta_squared": 0.9846907185905813,
+      "mutual_info": 2.0900365285892826,
+      "mean_range_across_crops": 55.13462580295643,
+      "normalized_mean_range": 26.680278494211507
+    },
+    {
+      "feature": "Humidity",
+      "feature_group": "Weather/environment",
+      "leakage_classification": "SAFE_PRE_PLANT",
+      "anova_f": 683.8527411009485,
+      "p_value": 0.0,
+      "eta_squared": 0.703658807738973,
+      "mutual_info": 0.5833529869714216,
+      "mean_range_across_crops": 31.88374642055568,
+      "normalized_mean_range": 4.391191961476301
+    },
+    {
+      "feature": "Temperature",
+      "feature_group": "Weather/environment",
+      "leakage_classification": "SAFE_PRE_PLANT",
+      "anova_f": 93.80489912064384,
+      "p_value": 3.3253202238837625e-135,
+      "eta_squared": 0.24568804469689154,
+      "mutual_info": 0.3671597729864735,
+      "mean_range_across_crops": 6.615480225988705,
+      "normalized_mean_range": 1.6141027672103214
+    }
+  ],
+  "decision": "B - REQUIRES CLEANING/FEATURE REFINEMENT",
+  "decision_reason": "The actual dataset has meaningful feature/crop separation, but only 4 features, duplicate rows, class imbalance, and an ambiguous redundant Soil column require cleaning and feature decisions before model experiments."
+}

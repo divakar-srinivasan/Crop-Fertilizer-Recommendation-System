@@ -1,0 +1,7 @@
+{
+  "largest_class": "Maize",
+  "largest_count": 608,
+  "smallest_class": "Sugercane",
+  "smallest_count": 180,
+  "imbalance_ratio_largest_to_smallest": 3.38
+}

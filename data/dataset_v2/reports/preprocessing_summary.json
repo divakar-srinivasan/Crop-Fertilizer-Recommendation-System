@@ -1,0 +1,267 @@
+{
+  "objective": "Prepare the first Dataset V2 baseline split from CropRec-BD v1 without modifying the raw CSV or training models.",
+  "raw_dataset": {
+    "source_file": "data\\dataset_v2\\final_crops_data.csv",
+    "expected_columns": [
+      "Soil",
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature",
+      "Crop Name"
+    ],
+    "actual_columns": [
+      "Soil",
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature",
+      "Crop Name"
+    ],
+    "rows_before_cleaning": 2892,
+    "columns_before_cleaning": 5,
+    "sha256_before": "cfd15c93086a02991bcda90869537b8390794e98c6acc5c5e13f0b7c6c11afee",
+    "sha256_after": "cfd15c93086a02991bcda90869537b8390794e98c6acc5c5e13f0b7c6c11afee",
+    "raw_file_unchanged": true
+  },
+  "cleaning_operations": {
+    "selected_columns": [
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature",
+      "Crop Name"
+    ],
+    "selected_rows_before_cleaning": 2892,
+    "excluded_columns": [
+      "Soil"
+    ],
+    "missing_before": {
+      "nan_null_counts_by_column": {
+        "Soil_Moisture": 0,
+        "Humidity": 0,
+        "Temperature": 0,
+        "Crop Name": 0
+      },
+      "empty_string_counts_by_column": {
+        "Soil_Moisture": 0,
+        "Humidity": 0,
+        "Temperature": 0,
+        "Crop Name": 0
+      },
+      "total_missing_like_values": 0
+    },
+    "missing_rows_removed": 0,
+    "missing_after": {
+      "nan_null_counts_by_column": {
+        "Soil_Moisture": 0,
+        "Humidity": 0,
+        "Temperature": 0,
+        "Crop Name": 0
+      },
+      "empty_string_counts_by_column": {
+        "Soil_Moisture": 0,
+        "Humidity": 0,
+        "Temperature": 0,
+        "Crop Name": 0
+      },
+      "total_missing_like_values": 0
+    },
+    "numeric_validation": {
+      "Soil_Moisture": {
+        "dtype": "int64",
+        "is_numeric_dtype": true,
+        "nan_count": 0,
+        "infinite_count": 0,
+        "invalid_numeric_string_count": 0
+      },
+      "Humidity": {
+        "dtype": "float64",
+        "is_numeric_dtype": true,
+        "nan_count": 0,
+        "infinite_count": 0,
+        "invalid_numeric_string_count": 0
+      },
+      "Temperature": {
+        "dtype": "float64",
+        "is_numeric_dtype": true,
+        "nan_count": 0,
+        "infinite_count": 0,
+        "invalid_numeric_string_count": 0
+      }
+    },
+    "duplicate_rows_before": 1,
+    "duplicate_rows_removed": 1,
+    "rows_after_duplicate_removal": 2891,
+    "label_standardization": {
+      "Sugercane": "Sugarcane"
+    },
+    "label_standardization_counts": {
+      "Sugercane": 180
+    },
+    "labels_before_standardization": {
+      "Banana": 289,
+      "Jute": 247,
+      "Maize": 607,
+      "Mango": 255,
+      "Pineapple": 181,
+      "Potato": 324,
+      "Strawberry": 443,
+      "Sugercane": 180,
+      "Wheat": 365
+    },
+    "labels_after_standardization": {
+      "Banana": 289,
+      "Jute": 247,
+      "Maize": 607,
+      "Mango": 255,
+      "Pineapple": 181,
+      "Potato": 324,
+      "Strawberry": 443,
+      "Sugarcane": 180,
+      "Wheat": 365
+    }
+  },
+  "before_after_counts": {
+    "raw_rows_before": 2892,
+    "selected_rows_before": 2892,
+    "duplicates_removed": 1,
+    "missing_rows_removed": 0,
+    "cleaned_rows_after": 2891
+  },
+  "feature_list": [
+    "Soil_Moisture",
+    "Humidity",
+    "Temperature"
+  ],
+  "target_column": "Crop Name",
+  "crop_classes": [
+    "Banana",
+    "Jute",
+    "Maize",
+    "Mango",
+    "Pineapple",
+    "Potato",
+    "Strawberry",
+    "Sugarcane",
+    "Wheat"
+  ],
+  "label_mapping": {
+    "Banana": 0,
+    "Jute": 1,
+    "Maize": 2,
+    "Mango": 3,
+    "Pineapple": 4,
+    "Potato": 5,
+    "Strawberry": 6,
+    "Sugarcane": 7,
+    "Wheat": 8
+  },
+  "feature_validation": {
+    "Soil_Moisture": {
+      "min": 31.0,
+      "max": 99.0,
+      "mean": 72.8291248702871,
+      "median": 80.0,
+      "std": 19.410459739433445,
+      "unique_values": 69
+    },
+    "Humidity": {
+      "min": 30.69,
+      "max": 95.56,
+      "mean": 78.19172604635074,
+      "median": 82.5,
+      "std": 13.320601523340024,
+      "unique_values": 756
+    },
+    "Temperature": {
+      "min": 11.84,
+      "max": 34.3,
+      "mean": 25.523863714977512,
+      "median": 27.65,
+      "std": 4.58262071037868,
+      "unique_values": 1185
+    }
+  },
+  "train_test_split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratified": true,
+    "X_train_shape": [
+      2312,
+      3
+    ],
+    "X_test_shape": [
+      579,
+      3
+    ],
+    "y_train_shape": [
+      2312
+    ],
+    "y_test_shape": [
+      579
+    ],
+    "train_class_distribution": {
+      "Banana": 231,
+      "Jute": 198,
+      "Maize": 485,
+      "Mango": 204,
+      "Pineapple": 145,
+      "Potato": 259,
+      "Strawberry": 354,
+      "Sugarcane": 144,
+      "Wheat": 292
+    },
+    "test_class_distribution": {
+      "Banana": 58,
+      "Jute": 49,
+      "Maize": 122,
+      "Mango": 51,
+      "Pineapple": 36,
+      "Potato": 65,
+      "Strawberry": 89,
+      "Sugarcane": 36,
+      "Wheat": 73
+    }
+  },
+  "output_files": [
+    "data\\dataset_v2\\cleaned\\croprec_bd_clean.csv",
+    "data\\dataset_v2\\cleaned\\X_train.csv",
+    "data\\dataset_v2\\cleaned\\X_test.csv",
+    "data\\dataset_v2\\cleaned\\y_train.csv",
+    "data\\dataset_v2\\cleaned\\y_test.csv",
+    "data\\dataset_v2\\cleaned\\label_encoder.joblib",
+    "data\\dataset_v2\\reports\\preprocessing_summary.json",
+    "data\\dataset_v2\\reports\\preprocessing_summary.md"
+  ],
+  "validation_results": {
+    "raw_sha_preserved": true,
+    "cleaned_rows_equal_2891": true,
+    "cleaned_has_three_features_plus_target": true,
+    "soil_excluded_from_cleaned_dataset": true,
+    "nine_classes_present": true,
+    "train_rows_equal_2312": true,
+    "test_rows_equal_579": true,
+    "X_train_shape": [
+      2312,
+      3
+    ],
+    "X_test_shape": [
+      579,
+      3
+    ],
+    "y_train_shape": [
+      2312
+    ],
+    "y_test_shape": [
+      579
+    ],
+    "feature_order_preserved": true,
+    "no_nan_values": true,
+    "no_infinite_feature_values": true,
+    "label_encoder_class_count": 9,
+    "label_encoder_mapping_recorded": true,
+    "primary_output_files_exist": true,
+    "all_output_files_exist": true
+  },
+  "errors": [],
+  "warnings": [],
+  "final_status": "DATASET V2 CLEANING COMPLETED"
+}

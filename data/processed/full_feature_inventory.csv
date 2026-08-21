@@ -1,0 +1,47 @@
+column_name,data_type,missing_values,missing_pct,unique_values,feature_type,feature_group,currently_used,leakage_risk,leakage_reason,appears_to_contain_target_information,scientifically_reasonable_for_crop_recommendation,reasonableness_note
+Temperature,float64,0,0.0,10000,numeric,Environmental/weather variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Humidity,float64,0,0.0,10000,numeric,Environmental/weather variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Rainfall,float64,0,0.0,10000,numeric,Environmental/weather variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Soil_Type,str,0,0.0,4,categorical,Soil properties,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+pH,float64,0,0.0,10000,numeric,Soil properties,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+EC,float64,0,0.0,10000,numeric,Soil properties,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+OC,float64,0,0.0,10000,numeric,Soil properties,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+N,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+P,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+K,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+Ca,float64,0,0.0,10000,numeric,Soil nutrients,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Mg,float64,0,0.0,10000,numeric,Soil nutrients,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+S,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+Zn,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+Fe,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+Cu,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+Mn,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+B,float64,0,0.0,10000,numeric,Soil nutrients,True,LOW,,No,Yes,Plausible input if available before recommendation time.
+Mo,float64,0,0.0,10000,numeric,Soil nutrients,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+CEC,float64,0,0.0,10000,numeric,Soil properties,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Sand,float64,0,0.0,10000,numeric,Soil properties,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Silt,float64,0,0.0,10000,numeric,Soil properties,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Clay,float64,0,0.0,10000,numeric,Soil properties,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Bulk_Density,float64,0,0.0,10000,numeric,Soil properties,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Water_Holding_Capacity,float64,0,0.0,10000,numeric,Soil properties,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Slope,float64,0,0.0,10000,numeric,Location/agricultural variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Aspect,float64,0,0.0,10000,numeric,Location/agricultural variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Elevation,float64,0,0.0,10000,numeric,Location/agricultural variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Solar_Radiation,float64,0,0.0,10000,numeric,Environmental/weather variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Wind_Speed,float64,0,0.0,10000,numeric,Environmental/weather variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+NDVI,float64,0,0.0,10000,numeric,Other agricultural measurements,False,LEAKAGE_RISK,Vegetation index generally observed after crop growth; future/crop-state information risk.,Yes,No,Vegetation index generally observed after crop growth; future/crop-state information risk.
+EVI,float64,0,0.0,10000,numeric,Other agricultural measurements,False,LEAKAGE_RISK,Vegetation index generally observed after crop growth; future/crop-state information risk.,Yes,No,Vegetation index generally observed after crop growth; future/crop-state information risk.
+LAI,float64,0,0.0,10000,numeric,Other agricultural measurements,False,LEAKAGE_RISK,Crop canopy measurement generally observed after crop growth; future/crop-state information risk.,Yes,No,Crop canopy measurement generally observed after crop growth; future/crop-state information risk.
+Chlorophyll,float64,0,0.0,10000,numeric,Other agricultural measurements,False,LEAKAGE_RISK,Plant physiological measurement generally observed after crop growth; future/crop-state information risk.,Yes,No,Plant physiological measurement generally observed after crop growth; future/crop-state information risk.
+GDD,float64,0,0.0,10000,numeric,Environmental/weather variables,False,LOW,,No,Context-dependent,"Scientifically meaningful if based on historical/forecast climate, not post-harvest realized values."
+Crop_Type,str,0,0.0,4,categorical,Target,False,LEAKAGE_RISK,Direct target column; using it as a feature would be direct leakage.,Yes,No,"Target column, not an input feature."
+Planting_Date,str,0,0.0,10000,datetime,Location/agricultural variables,False,LEAKAGE_RISK,Raw date is unique for every row and behaves like an ID-like field; use only after careful temporal validation/transformation.,Yes,No,Raw date is unique for every row and behaves like an ID-like field; use only after careful temporal validation/transformation.
+Harvest_Date,str,0,0.0,10000,datetime,Other agricultural measurements,False,LEAKAGE_RISK,Future/post-planting field; not appropriate as an input for pre-plant crop recommendation.,Yes,No,Future/post-planting field; not appropriate as an input for pre-plant crop recommendation.
+Growth_Stage,str,0,0.0,3,categorical,Other agricultural measurements,False,LEAKAGE_RISK,Post-planting crop state; likely known only after crop is already established.,Yes,No,Post-planting crop state; likely known only after crop is already established.
+Irrigation_Frequency,int64,0,0.0,29,numeric,Location/agricultural variables,False,LOW,,No,Context-dependent,"Can be a planned management input, but may also depend on crop choice."
+Fertilizer_Type,str,0,0.0,3,categorical,Other agricultural measurements,False,LEAKAGE_RISK,Management decision likely made after or with crop choice; context-dependent leakage risk.,Yes,No,Management decision likely made after or with crop choice; context-dependent leakage risk.
+Pesticide_Usage,str,0,0.0,3,categorical,Other agricultural measurements,False,LEAKAGE_RISK,Post-decision management field; not a stable pre-plant crop suitability input.,Yes,No,Post-decision management field; not a stable pre-plant crop suitability input.
+Yield,float64,0,0.0,10000,numeric,Other agricultural measurements,False,LEAKAGE_RISK,Outcome variable after crop growth; strong future-information leakage risk for recommendation.,Yes,No,Outcome variable after crop growth; strong future-information leakage risk for recommendation.
+Region,str,0,0.0,4,categorical,Location/agricultural variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Season,str,0,0.0,3,categorical,Location/agricultural variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.
+Year,int64,0,0.0,25,numeric,Location/agricultural variables,False,LOW,,No,Yes,Plausible input if available before recommendation time.

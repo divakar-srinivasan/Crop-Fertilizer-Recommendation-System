@@ -1,0 +1,28 @@
+{
+  "random_state": 42,
+  "selection_metric": "F1_Score (weighted)",
+  "best_model": "Random Forest",
+  "best_metrics": {
+    "Model": "Random Forest",
+    "Accuracy": 0.258,
+    "Precision": 0.257,
+    "Recall": 0.258,
+    "F1_Score": 0.2572
+  },
+  "reason": "Selected Random Forest because it achieved the highest weighted F1-score (0.2572) on the held-out test set.",
+  "comparison_file": "E:\\Devops\\Crop-Fertilizer-Recommendation-System\\data\\processed\\model_comparison.csv",
+  "feature_order": [
+    "N",
+    "P",
+    "K",
+    "pH",
+    "EC",
+    "OC",
+    "S",
+    "Zn",
+    "Fe",
+    "Cu",
+    "Mn",
+    "B"
+  ]
+}

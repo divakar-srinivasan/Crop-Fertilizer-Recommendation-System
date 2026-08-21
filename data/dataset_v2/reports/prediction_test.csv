@@ -1,0 +1,6 @@
+Test_Row_Number,Soil_Moisture,Humidity,Temperature,Actual_Crop,Predicted_Crop,Correct
+1,44,55.56,29.58,Wheat,Wheat,True
+2,80,80.38,20.12,Jute,Jute,True
+3,65,65.56,14.96,Banana,Banana,True
+4,91,86.38,28.6,Maize,Maize,True
+5,38,63.5,26.56,Wheat,Wheat,True

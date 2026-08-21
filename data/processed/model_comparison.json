@@ -1,0 +1,30 @@
+[
+  {
+    "Model":"Random Forest",
+    "Accuracy":0.258,
+    "Precision":0.257,
+    "Recall":0.258,
+    "F1_Score":0.2572
+  },
+  {
+    "Model":"LightGBM",
+    "Accuracy":0.258,
+    "Precision":0.2575,
+    "Recall":0.258,
+    "F1_Score":0.2571
+  },
+  {
+    "Model":"CatBoost",
+    "Accuracy":0.2425,
+    "Precision":0.242,
+    "Recall":0.2425,
+    "F1_Score":0.2418
+  },
+  {
+    "Model":"XGBoost",
+    "Accuracy":0.231,
+    "Precision":0.2295,
+    "Recall":0.231,
+    "F1_Score":0.2299
+  }
+]

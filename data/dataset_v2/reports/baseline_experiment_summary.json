@@ -1,0 +1,596 @@
+{
+  "objective": "Train and evaluate the first Dataset V2 crop recommendation baseline using cleaned artifacts only.",
+  "dataset": {
+    "cleaned_dataset": "data\\dataset_v2\\cleaned\\croprec_bd_clean.csv",
+    "X_train": "data\\dataset_v2\\cleaned\\X_train.csv",
+    "X_test": "data\\dataset_v2\\cleaned\\X_test.csv",
+    "y_train": "data\\dataset_v2\\cleaned\\y_train.csv",
+    "y_test": "data\\dataset_v2\\cleaned\\y_test.csv",
+    "label_encoder": "data\\dataset_v2\\cleaned\\label_encoder.joblib",
+    "train_samples": 2312,
+    "test_samples": 579,
+    "feature_order": [
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature"
+    ],
+    "classes": [
+      "Banana",
+      "Jute",
+      "Maize",
+      "Mango",
+      "Pineapple",
+      "Potato",
+      "Strawberry",
+      "Sugarcane",
+      "Wheat"
+    ],
+    "class_distribution_train": {
+      "Banana": 231,
+      "Jute": 198,
+      "Maize": 485,
+      "Mango": 204,
+      "Pineapple": 145,
+      "Potato": 259,
+      "Strawberry": 354,
+      "Sugarcane": 144,
+      "Wheat": 292
+    },
+    "class_distribution_test": {
+      "Banana": 58,
+      "Jute": 49,
+      "Maize": 122,
+      "Mango": 51,
+      "Pineapple": 36,
+      "Potato": 65,
+      "Strawberry": 89,
+      "Sugarcane": 36,
+      "Wheat": 73
+    }
+  },
+  "models_trained": [
+    "Random Forest",
+    "LightGBM",
+    "XGBoost",
+    "CatBoost"
+  ],
+  "model_parameters": {
+    "Random Forest": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": null,
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 200,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "LightGBM": {
+      "boosting_type": "gbdt",
+      "class_weight": null,
+      "colsample_bytree": 1.0,
+      "importance_type": "split",
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_child_samples": 20,
+      "min_child_weight": 0.001,
+      "min_split_gain": 0.0,
+      "n_estimators": 200,
+      "n_jobs": -1,
+      "num_leaves": 31,
+      "objective": null,
+      "random_state": 42,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 1.0,
+      "subsample_for_bin": 200000,
+      "subsample_freq": 0,
+      "verbose": -1
+    },
+    "XGBoost": {
+      "objective": "multi:softprob",
+      "base_score": null,
+      "booster": null,
+      "callbacks": null,
+      "colsample_bylevel": null,
+      "colsample_bynode": null,
+      "colsample_bytree": 0.9,
+      "device": null,
+      "early_stopping_rounds": null,
+      "enable_categorical": true,
+      "eval_metric": "mlogloss",
+      "feature_types": null,
+      "feature_weights": null,
+      "gamma": null,
+      "grow_policy": null,
+      "importance_type": null,
+      "interaction_constraints": null,
+      "learning_rate": 0.05,
+      "max_bin": null,
+      "max_cat_threshold": null,
+      "max_cat_to_onehot": null,
+      "max_delta_step": null,
+      "max_depth": 4,
+      "max_leaves": null,
+      "min_child_weight": null,
+      "missing": NaN,
+      "monotone_constraints": null,
+      "multi_strategy": null,
+      "n_estimators": 200,
+      "n_jobs": -1,
+      "num_parallel_tree": null,
+      "random_state": 42,
+      "reg_alpha": null,
+      "reg_lambda": null,
+      "sampling_method": null,
+      "scale_pos_weight": null,
+      "subsample": 0.9,
+      "tree_method": null,
+      "validate_parameters": null,
+      "verbosity": 0
+    },
+    "CatBoost": {
+      "iterations": 300,
+      "learning_rate": 0.05,
+      "depth": 6,
+      "loss_function": "MultiClass",
+      "random_seed": 42,
+      "verbose": 0,
+      "allow_writing_files": false
+    }
+  },
+  "model_comparison": [
+    {
+      "Model": "CatBoost",
+      "Accuracy": 0.993092,
+      "Weighted_Precision": 0.993217,
+      "Weighted_Recall": 0.993092,
+      "Weighted_F1": 0.993092,
+      "Macro_Precision": 0.991942,
+      "Macro_Recall": 0.993995,
+      "Macro_F1": 0.9929
+    },
+    {
+      "Model": "XGBoost",
+      "Accuracy": 0.993092,
+      "Weighted_Precision": 0.99317,
+      "Weighted_Recall": 0.993092,
+      "Weighted_F1": 0.993083,
+      "Macro_Precision": 0.994034,
+      "Macro_Recall": 0.99182,
+      "Macro_F1": 0.992865
+    },
+    {
+      "Model": "LightGBM",
+      "Accuracy": 0.98791,
+      "Weighted_Precision": 0.987898,
+      "Weighted_Recall": 0.98791,
+      "Weighted_F1": 0.987861,
+      "Macro_Precision": 0.987607,
+      "Macro_Recall": 0.984287,
+      "Macro_F1": 0.985894
+    },
+    {
+      "Model": "Random Forest",
+      "Accuracy": 0.982729,
+      "Weighted_Precision": 0.983251,
+      "Weighted_Recall": 0.982729,
+      "Weighted_F1": 0.982721,
+      "Macro_Precision": 0.980789,
+      "Macro_Recall": 0.976109,
+      "Macro_F1": 0.978071
+    }
+  ],
+  "selection": {
+    "primary_metric": "Macro_F1",
+    "secondary_metric": "Weighted_F1",
+    "tertiary_metric": "Accuracy",
+    "best_model": "CatBoost",
+    "best_metrics": {
+      "Model": "CatBoost",
+      "Accuracy": 0.9930915371329879,
+      "Weighted_Precision": 0.9932167882945087,
+      "Weighted_Recall": 0.9930915371329879,
+      "Weighted_F1": 0.9930924815991552,
+      "Macro_Precision": 0.9919421752755085,
+      "Macro_Recall": 0.9939952238668219,
+      "Macro_F1": 0.9929003398555066
+    },
+    "reason": "Selected CatBoost using Macro F1 as the primary criterion (0.9929), then Weighted F1 (0.9931), then Accuracy (0.9931)."
+  },
+  "per_class_metrics_best_model": [
+    {
+      "Crop": "Banana",
+      "Precision": 1.0,
+      "Recall": 0.982759,
+      "F1": 0.991304,
+      "Support": 58
+    },
+    {
+      "Crop": "Jute",
+      "Precision": 1.0,
+      "Recall": 0.979592,
+      "F1": 0.989691,
+      "Support": 49
+    },
+    {
+      "Crop": "Maize",
+      "Precision": 1.0,
+      "Recall": 0.983607,
+      "F1": 0.991736,
+      "Support": 122
+    },
+    {
+      "Crop": "Mango",
+      "Precision": 0.980769,
+      "Recall": 1.0,
+      "F1": 0.990291,
+      "Support": 51
+    },
+    {
+      "Crop": "Pineapple",
+      "Precision": 0.972973,
+      "Recall": 1.0,
+      "F1": 0.986301,
+      "Support": 36
+    },
+    {
+      "Crop": "Potato",
+      "Precision": 0.984848,
+      "Recall": 1.0,
+      "F1": 0.992366,
+      "Support": 65
+    },
+    {
+      "Crop": "Strawberry",
+      "Precision": 0.988889,
+      "Recall": 1.0,
+      "F1": 0.994413,
+      "Support": 89
+    },
+    {
+      "Crop": "Sugarcane",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0,
+      "Support": 36
+    },
+    {
+      "Crop": "Wheat",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0,
+      "Support": 73
+    }
+  ],
+  "easiest_crops_by_f1": [
+    {
+      "Crop": "Sugarcane",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0,
+      "Support": 36
+    },
+    {
+      "Crop": "Wheat",
+      "Precision": 1.0,
+      "Recall": 1.0,
+      "F1": 1.0,
+      "Support": 73
+    },
+    {
+      "Crop": "Strawberry",
+      "Precision": 0.988889,
+      "Recall": 1.0,
+      "F1": 0.994413,
+      "Support": 89
+    }
+  ],
+  "hardest_crops_by_f1": [
+    {
+      "Crop": "Pineapple",
+      "Precision": 0.972973,
+      "Recall": 1.0,
+      "F1": 0.986301,
+      "Support": 36
+    },
+    {
+      "Crop": "Jute",
+      "Precision": 1.0,
+      "Recall": 0.979592,
+      "F1": 0.989691,
+      "Support": 49
+    },
+    {
+      "Crop": "Mango",
+      "Precision": 0.980769,
+      "Recall": 1.0,
+      "F1": 0.990291,
+      "Support": 51
+    }
+  ],
+  "confusion_matrix_interpretation": {
+    "total_test_samples": 579,
+    "correct_predictions": 575,
+    "incorrect_predictions": 4,
+    "largest_off_diagonal_confusions": [
+      {
+        "Actual": "Banana",
+        "Predicted": "Potato",
+        "Count": 1
+      },
+      {
+        "Actual": "Jute",
+        "Predicted": "Mango",
+        "Count": 1
+      },
+      {
+        "Actual": "Maize",
+        "Predicted": "Pineapple",
+        "Count": 1
+      },
+      {
+        "Actual": "Maize",
+        "Predicted": "Strawberry",
+        "Count": 1
+      }
+    ]
+  },
+  "feature_importance": [
+    {
+      "Model": "Random Forest",
+      "Feature": "Soil_Moisture",
+      "Importance": 0.691666,
+      "Normalized_Importance": 0.691666
+    },
+    {
+      "Model": "Random Forest",
+      "Feature": "Humidity",
+      "Importance": 0.175048,
+      "Normalized_Importance": 0.175048
+    },
+    {
+      "Model": "Random Forest",
+      "Feature": "Temperature",
+      "Importance": 0.133287,
+      "Normalized_Importance": 0.133287
+    },
+    {
+      "Model": "LightGBM",
+      "Feature": "Soil_Moisture",
+      "Importance": 16628.0,
+      "Normalized_Importance": 0.419539
+    },
+    {
+      "Model": "LightGBM",
+      "Feature": "Humidity",
+      "Importance": 10496.0,
+      "Normalized_Importance": 0.264823
+    },
+    {
+      "Model": "LightGBM",
+      "Feature": "Temperature",
+      "Importance": 12510.0,
+      "Normalized_Importance": 0.315638
+    },
+    {
+      "Model": "XGBoost",
+      "Feature": "Soil_Moisture",
+      "Importance": 0.866911,
+      "Normalized_Importance": 0.866911
+    },
+    {
+      "Model": "XGBoost",
+      "Feature": "Humidity",
+      "Importance": 0.093733,
+      "Normalized_Importance": 0.093733
+    },
+    {
+      "Model": "XGBoost",
+      "Feature": "Temperature",
+      "Importance": 0.039356,
+      "Normalized_Importance": 0.039356
+    },
+    {
+      "Model": "CatBoost",
+      "Feature": "Soil_Moisture",
+      "Importance": 95.310486,
+      "Normalized_Importance": 0.953105
+    },
+    {
+      "Model": "CatBoost",
+      "Feature": "Humidity",
+      "Importance": 1.938081,
+      "Normalized_Importance": 0.019381
+    },
+    {
+      "Model": "CatBoost",
+      "Feature": "Temperature",
+      "Importance": 2.751433,
+      "Normalized_Importance": 0.027514
+    }
+  ],
+  "best_model_feature_importance": [
+    {
+      "Model": "CatBoost",
+      "Feature": "Soil_Moisture",
+      "Importance": 95.310486,
+      "Normalized_Importance": 0.953105
+    },
+    {
+      "Model": "CatBoost",
+      "Feature": "Temperature",
+      "Importance": 2.751433,
+      "Normalized_Importance": 0.027514
+    },
+    {
+      "Model": "CatBoost",
+      "Feature": "Humidity",
+      "Importance": 1.938081,
+      "Normalized_Importance": 0.019381
+    }
+  ],
+  "prediction_test": [
+    {
+      "Test_Row_Number": 1,
+      "Soil_Moisture": 44,
+      "Humidity": 55.56,
+      "Temperature": 29.58,
+      "Actual_Crop": "Wheat",
+      "Predicted_Crop": "Wheat",
+      "Correct": true
+    },
+    {
+      "Test_Row_Number": 2,
+      "Soil_Moisture": 80,
+      "Humidity": 80.38,
+      "Temperature": 20.12,
+      "Actual_Crop": "Jute",
+      "Predicted_Crop": "Jute",
+      "Correct": true
+    },
+    {
+      "Test_Row_Number": 3,
+      "Soil_Moisture": 65,
+      "Humidity": 65.56,
+      "Temperature": 14.96,
+      "Actual_Crop": "Banana",
+      "Predicted_Crop": "Banana",
+      "Correct": true
+    },
+    {
+      "Test_Row_Number": 4,
+      "Soil_Moisture": 91,
+      "Humidity": 86.38,
+      "Temperature": 28.6,
+      "Actual_Crop": "Maize",
+      "Predicted_Crop": "Maize",
+      "Correct": true
+    },
+    {
+      "Test_Row_Number": 5,
+      "Soil_Moisture": 38,
+      "Humidity": 63.5,
+      "Temperature": 26.56,
+      "Actual_Crop": "Wheat",
+      "Predicted_Crop": "Wheat",
+      "Correct": true
+    }
+  ],
+  "dataset_characteristics": {
+    "soil_moisture_eta_squared_from_prior_audit": 0.9847,
+    "humidity_eta_squared_from_prior_audit": 0.7037,
+    "temperature_eta_squared_from_prior_audit": 0.2457,
+    "note": "Dataset V2 contains unusually strong Soil_Moisture separation by crop. High test accuracy should be reported as dataset-dependent, not as proof of broad real-world generalization."
+  },
+  "reproducibility": {
+    "python_version": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "library_versions": {
+      "numpy": "2.5.2",
+      "pandas": "3.0.5",
+      "scikit-learn": "1.9.0",
+      "lightgbm": "4.7.0",
+      "xgboost": "3.4.0",
+      "catboost": "1.2.10",
+      "matplotlib": "3.11.1",
+      "joblib": "1.5.3"
+    },
+    "random_state": 42,
+    "feature_order": [
+      "Soil_Moisture",
+      "Humidity",
+      "Temperature"
+    ],
+    "train_size": 2312,
+    "test_size": 579,
+    "cleaned_input_checksums_before": {
+      "data\\dataset_v2\\cleaned\\X_train.csv": "988e8bb1102d3314595f75ea662882c0e85d59b35a70d0f68ca51ecb22053322",
+      "data\\dataset_v2\\cleaned\\X_test.csv": "c32b5560f02b1be83c7b7214c37c441212a5af137a81911138adf03f605890d5",
+      "data\\dataset_v2\\cleaned\\y_train.csv": "d31b29d641fcee5b519f7a87bde201a1ae264d6aa52779144dba993a50ffc1aa",
+      "data\\dataset_v2\\cleaned\\y_test.csv": "a7abf3c25c8d48de473477b4e7fd4409e55a4b39c8da6f80f52f87bee1d4ad1a",
+      "data\\dataset_v2\\cleaned\\label_encoder.joblib": "706722a5bfdd18e7b40a86c18198c148b035f1ea55a3f10db047879ef51efee8"
+    },
+    "cleaned_input_checksums_after": {
+      "data\\dataset_v2\\cleaned\\X_train.csv": "988e8bb1102d3314595f75ea662882c0e85d59b35a70d0f68ca51ecb22053322",
+      "data\\dataset_v2\\cleaned\\X_test.csv": "c32b5560f02b1be83c7b7214c37c441212a5af137a81911138adf03f605890d5",
+      "data\\dataset_v2\\cleaned\\y_train.csv": "d31b29d641fcee5b519f7a87bde201a1ae264d6aa52779144dba993a50ffc1aa",
+      "data\\dataset_v2\\cleaned\\y_test.csv": "a7abf3c25c8d48de473477b4e7fd4409e55a4b39c8da6f80f52f87bee1d4ad1a",
+      "data\\dataset_v2\\cleaned\\label_encoder.joblib": "706722a5bfdd18e7b40a86c18198c148b035f1ea55a3f10db047879ef51efee8"
+    },
+    "v1_model_checksums_before": {
+      "models\\catboost.joblib": "8b474858a68f77d5e73a8627493661cb0a60e291152c58bb30b8e45d95962646",
+      "models\\crop_model.pkl": "4f8d73c4d26c94f4da869aa850275ff9501374173c12c3e6b1675959cb91e0e2",
+      "models\\label_encoder.joblib": "26ce2aa0efd23b0d7e437f565c7d4c5b80a70ec388f5e4d3d3b0824170501a5d",
+      "models\\lightgbm.joblib": "71592bdfc51c91103bf8b6c1ac0bbdde846536375168926f68bc411a4443474d",
+      "models\\random_forest.joblib": "79a011f94085f08756118ce86ca9063fe41a34657df0fb2cd2bc3f11465c2af7",
+      "models\\xgboost.joblib": "42e5dad3c4dbaafffb28e6b938bf48f4360d2f0a9b4163961e6df1dea076cd06"
+    },
+    "v1_model_checksums_after": {
+      "models\\catboost.joblib": "8b474858a68f77d5e73a8627493661cb0a60e291152c58bb30b8e45d95962646",
+      "models\\crop_model.pkl": "4f8d73c4d26c94f4da869aa850275ff9501374173c12c3e6b1675959cb91e0e2",
+      "models\\label_encoder.joblib": "26ce2aa0efd23b0d7e437f565c7d4c5b80a70ec388f5e4d3d3b0824170501a5d",
+      "models\\lightgbm.joblib": "71592bdfc51c91103bf8b6c1ac0bbdde846536375168926f68bc411a4443474d",
+      "models\\random_forest.joblib": "79a011f94085f08756118ce86ca9063fe41a34657df0fb2cd2bc3f11465c2af7",
+      "models\\xgboost.joblib": "42e5dad3c4dbaafffb28e6b938bf48f4360d2f0a9b4163961e6df1dea076cd06"
+    }
+  },
+  "scientific_validation": {
+    "test_set_not_used_during_training": true,
+    "test_labels_not_used_for_model_tuning": true,
+    "no_hyperparameter_tuning_against_test_set": true,
+    "no_synthetic_samples_added": true,
+    "no_oversampling_or_undersampling": true,
+    "no_smote": true,
+    "no_rows_duplicated_in_combined_split": true,
+    "combined_duplicate_rows": 0,
+    "train_test_exact_row_label_intersection": 0,
+    "train_test_feature_only_intersection": 0,
+    "feature_order_verified": true,
+    "target_encoding_range_verified": true,
+    "cleaned_artifacts_unchanged_by_training": true,
+    "v1_model_artifacts_unchanged": true,
+    "no_feature_values_changed": true,
+    "no_labels_modified_by_experiment": true,
+    "soil_moisture_sanity_check": {
+      "available": true,
+      "unique_soil_moisture_values": 69,
+      "values_mapping_to_one_crop": 56,
+      "values_mapping_to_multiple_crops": 13,
+      "max_crops_for_one_soil_moisture_value": 2,
+      "interpretation": "Soil_Moisture is highly class-separating in this dataset, but the integer value is not a perfect one-to-one hidden label because some values occur with multiple crops."
+    }
+  },
+  "output_files": [
+    "data\\dataset_v2\\reports\\model_comparison.csv",
+    "data\\dataset_v2\\reports\\model_comparison.json",
+    "data\\dataset_v2\\reports\\per_class_metrics.csv",
+    "data\\dataset_v2\\reports\\feature_importance.csv",
+    "data\\dataset_v2\\reports\\classification_reports.json",
+    "data\\dataset_v2\\reports\\confusion_matrices.json",
+    "data\\dataset_v2\\reports\\prediction_test.csv",
+    "images\\dataset_v2\\model_evaluation\\model_comparison.png",
+    "images\\dataset_v2\\model_evaluation\\random_forest_confusion_matrix.png",
+    "images\\dataset_v2\\model_evaluation\\lightgbm_confusion_matrix.png",
+    "images\\dataset_v2\\model_evaluation\\xgboost_confusion_matrix.png",
+    "images\\dataset_v2\\model_evaluation\\catboost_confusion_matrix.png",
+    "models\\dataset_v2\\crop_model_v2.pkl",
+    "models\\dataset_v2\\label_encoder_v2.joblib",
+    "data\\dataset_v2\\reports\\baseline_experiment_summary.json"
+  ],
+  "warnings": [
+    "Best model accuracy is above 90%; results are dataset-dependent and strongly influenced by Soil_Moisture separation."
+  ],
+  "final_status": "DATASET V2 BASELINE COMPLETED"
+}

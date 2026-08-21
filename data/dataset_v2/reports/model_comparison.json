@@ -1,0 +1,42 @@
+[
+  {
+    "Model": "CatBoost",
+    "Accuracy": 0.993092,
+    "Weighted_Precision": 0.993217,
+    "Weighted_Recall": 0.993092,
+    "Weighted_F1": 0.993092,
+    "Macro_Precision": 0.991942,
+    "Macro_Recall": 0.993995,
+    "Macro_F1": 0.9929
+  },
+  {
+    "Model": "XGBoost",
+    "Accuracy": 0.993092,
+    "Weighted_Precision": 0.99317,
+    "Weighted_Recall": 0.993092,
+    "Weighted_F1": 0.993083,
+    "Macro_Precision": 0.994034,
+    "Macro_Recall": 0.99182,
+    "Macro_F1": 0.992865
+  },
+  {
+    "Model": "LightGBM",
+    "Accuracy": 0.98791,
+    "Weighted_Precision": 0.987898,
+    "Weighted_Recall": 0.98791,
+    "Weighted_F1": 0.987861,
+    "Macro_Precision": 0.987607,
+    "Macro_Recall": 0.984287,
+    "Macro_F1": 0.985894
+  },
+  {
+    "Model": "Random Forest",
+    "Accuracy": 0.982729,
+    "Weighted_Precision": 0.983251,
+    "Weighted_Recall": 0.982729,
+    "Weighted_F1": 0.982721,
+    "Macro_Precision": 0.980789,
+    "Macro_Recall": 0.976109,
+    "Macro_F1": 0.978071
+  }
+]
